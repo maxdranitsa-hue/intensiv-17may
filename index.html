@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Материалы интенсива «AI для собственника» · 17 мая 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ffffff;
+    --text: #0a0a0a;
+    --text-2: #3a3a44;
+    --muted: #8a8a94;
+    --border: #ebebee;
+    --soft: #f5f5f7;
+
+    /* Primary accent — deep blue */
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --accent-deep: #1d4ed8;
+
+    /* Secondary accents */
+    --teal: #0891b2;
+    --teal-soft: #cffafe;
+    --good: #059669;
+    --good-soft: #dcfce7;
+    --warn: #d97706;
+    --warn-soft: #fef3c7;
+    --slate: #475569;
+    --slate-soft: #f1f5f9;
+
+    /* Brand 8 Digital */
+    --brand-red: #ef2424;
+    --brand-red-deep: #c41414;
+    --brand-black: #0a0a0a;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg); color: var(--text);
+    font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.88); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav.top .wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px;
+  }
+  nav.top .brand {
+    display: flex; align-items: center; gap: 14px;
+    font-weight: 800; font-size: 15px; letter-spacing: -0.01em;
+  }
+  nav.top .brand .logo {
+    height: 30px; width: auto; display: block;
+  }
+  nav.top .brand .divider {
+    width: 1px; height: 22px; background: var(--border);
+  }
+  nav.top .brand .label {
+    font-size: 13px; font-weight: 500; color: var(--muted);
+    line-height: 1.3;
+  }
+  nav.top .brand .label b { color: var(--text); font-weight: 700; }
+  nav.top ul { list-style: none; display: flex; gap: 24px; }
+  nav.top a { color: var(--text-2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+  nav.top a:hover { color: var(--accent); }
+  @media (max-width: 820px) {
+    nav.top ul { display: none; }
+    nav.top .brand .label { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 1100px; margin: 0 auto;
+    padding: 80px 24px 32px;
+  }
+  .hero .label {
+    font-size: 13px; color: var(--accent); font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; background: var(--accent-soft); border-radius: 999px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 28px;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lead {
+    font-size: clamp(18px, 2.2vw, 22px); color: var(--text-2);
+    max-width: 740px; line-height: 1.5; font-weight: 400;
+  }
+  .hero .meta {
+    display: flex; gap: 24px; margin-top: 36px; flex-wrap: wrap;
+    font-size: 14px; color: var(--muted);
+  }
+  .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* HERO PHOTO */
+  .hero-photo {
+    max-width: 1100px; margin: 0 auto 60px;
+    padding: 0 24px;
+  }
+  .hero-photo-frame {
+    position: relative;
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(37,99,235,0.22), 0 10px 30px -10px rgba(0,0,0,0.08);
+    background: var(--soft);
+  }
+  .hero-photo-frame img { display: block; width: 100%; height: auto; }
+  .hero-photo-caption {
+    position: absolute; bottom: 20px; left: 24px;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+    padding: 10px 18px; border-radius: 999px;
+    font-size: 13px; font-weight: 600; color: var(--text);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .hero-photo-caption::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--brand-red); display: inline-block;
+  }
+
+  /* GREETING BLOCK */
+  .greeting {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .greeting-box {
+    background: var(--soft); border-radius: 24px; padding: 40px 44px;
+    font-size: 19px; line-height: 1.6; color: var(--text);
+    position: relative;
+  }
+  .greeting-box::before {
+    content: '"'; position: absolute; top: 10px; left: 30px;
+    font-size: 70px; color: var(--accent); font-weight: 700; line-height: 1;
+    opacity: 0.3;
+  }
+  .greeting-box p { padding-left: 24px; }
+  .greeting-sign {
+    margin-top: 20px; padding-left: 24px;
+    font-size: 14px; color: var(--muted);
+  }
+
+  /* SECTIONS */
+  section.block {
+    max-width: 1100px; margin: 0 auto;
+    padding: 60px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .sec-head { display: flex; gap: 24px; align-items: baseline; margin-bottom: 32px; }
+  .sec-num {
+    font-size: 14px; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.1em; padding-top: 8px;
+  }
+  .sec-title h2 {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .sec-title .sub { color: var(--muted); font-size: 16px; font-weight: 500; }
+
+  /* GROUP LABEL — coloured chips per category */
+  .group-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 32px 0 14px;
+    padding: 7px 14px; border-radius: 999px;
+  }
+  .group-label svg { width: 14px; height: 14px; }
+  .group-label.gl-blue { background: var(--accent-soft); color: var(--accent); }
+  .group-label.gl-slate { background: var(--slate-soft); color: var(--slate); }
+  .group-label.gl-green { background: var(--good-soft); color: var(--good); }
+  .group-label.gl-teal { background: var(--teal-soft); color: var(--teal); }
+
+  /* DOWNLOAD CARDS — accented blue */
+  .download-row {
+    display: grid; grid-template-columns: 1fr; gap: 12px;
+  }
+  .download {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #ffffff 100%);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    text-decoration: none; color: var(--text);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .download::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--accent);
+  }
+  .download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(37,99,235,0.3);
+  }
+  .download .ic-box {
+    width: 48px; height: 48px;
+    background: var(--accent); color: white;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .download .ic-box svg { width: 24px; height: 24px; }
+  .download .dl-text { flex: 1; }
+  .download .dl-name { font-weight: 700; font-size: 16px; }
+  .download .dl-meta { font-size: 13px; color: var(--text-2); margin-top: 3px; }
+  .download .dl-arrow {
+    color: var(--accent); transition: transform 0.2s;
+    width: 24px; height: 24px; display: flex; align-items: center;
+  }
+  .download:hover .dl-arrow { transform: translateX(6px); }
+
+  /* PROMPT CARDS */
+  .prompts { margin-top: 12px; }
+  details.prompt {
+    background: #fafbfc;
+    border: 1px solid var(--border);
+    border-radius: 14px; margin-bottom: 10px;
+    overflow: hidden; transition: all 0.2s;
+  }
+  details.prompt[open] {
+    background: white;
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px -8px rgba(37,99,235,0.2);
+  }
+  details.prompt summary {
+    list-style: none; cursor: pointer;
+    padding: 18px 22px;
+    display: flex; align-items: center; gap: 14px;
+    user-select: none;
+  }
+  details.prompt summary::-webkit-details-marker { display: none; }
+  .prompt-badge {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 5px 11px; border-radius: 999px; text-transform: uppercase;
+    flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px;
+  }
+  .prompt-badge.main { background: var(--accent); color: white; }
+  .prompt-badge.template { background: var(--soft); color: var(--text-2); border: 1px solid var(--border); }
+  .prompt-badge.bonus { background: var(--teal-soft); color: var(--teal); }
+  .prompt-badge.hack { background: var(--warn-soft); color: var(--warn); }
+  .prompt-title { font-weight: 600; font-size: 16px; flex: 1; }
+  .prompt-chevron {
+    color: var(--muted); transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details.prompt[open] .prompt-chevron { transform: rotate(180deg); color: var(--accent); }
+  .prompt-body { padding: 0 22px 22px; }
+  .prompt-hint {
+    color: var(--text-2); font-size: 15px; margin: 4px 0 14px;
+    line-height: 1.5;
+  }
+  .prompt-code {
+    background: #0f1419;
+    border-radius: 10px; padding: 22px 24px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13.5px;
+    line-height: 1.7; color: #e4e6eb;
+    white-space: pre-wrap; word-break: break-word;
+    position: relative;
+  }
+  .copy-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #e4e6eb;
+    padding: 7px 14px;
+    border-radius: 8px; font-size: 12px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+  .copy-btn.copied { background: var(--good); border-color: var(--good); color: white; }
+  .copy-btn svg { width: 14px; height: 14px; }
+
+  /* RULES / TIPS */
+  .tips-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin-top: 16px;
+  }
+  .tip {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px 20px;
+  }
+  .tip-num {
+    font-size: 12px; font-weight: 700; color: var(--good);
+    background: var(--good-soft); padding: 3px 9px; border-radius: 999px;
+    display: inline-block; margin-bottom: 10px;
+  }
+  .tip h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .tip p { font-size: 14px; color: var(--text-2); line-height: 1.45; }
+
+  /* NORMS TABLE */
+  .norms { margin-top: 20px; border-collapse: collapse; width: 100%; font-size: 15px; }
+  .norms th { text-align: left; padding: 12px 16px; background: var(--soft); font-weight: 600; border: 1px solid var(--border); }
+  .norms td { padding: 11px 16px; border: 1px solid var(--border); }
+
+  /* CTA — BLACK with red accents */
+  .cta-block {
+    background: linear-gradient(140deg, #0a0a0a 0%, #1a0606 100%);
+    border-radius: 28px; padding: 56px 48px;
+    margin: 40px 0 48px;
+    position: relative; overflow: hidden;
+    color: white;
+    border: 1px solid rgba(239,36,36,0.2);
+  }
+  .cta-block::before {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(239,36,36,0.25), transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .cta-block::after {
+    content: ''; position: absolute; left: -80px; bottom: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(239,36,36,0.12), transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .cta-logo {
+    display: inline-flex; align-items: center; gap: 16px;
+    margin-bottom: 28px; position: relative;
+  }
+  .cta-logo-mark {
+    height: 56px; width: auto; display: block;
+  }
+  .cta-logo-text {
+    font-size: 28px; font-weight: 800; color: white;
+    letter-spacing: -0.02em;
+    border-left: 1px solid rgba(255,255,255,0.18);
+    padding-left: 16px;
+  }
+  .cta-logo-text small {
+    display: block; font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,0.55); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-top: 4px;
+  }
+  .cta-block h3 {
+    font-size: clamp(28px, 3.5vw, 38px); font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.02em; margin-bottom: 14px; max-width: 700px;
+    position: relative;
+  }
+  .cta-block p {
+    color: rgba(255,255,255,0.78); font-size: 17px;
+    margin-bottom: 32px; max-width: 620px; position: relative;
+  }
+  .cta-buttons {
+    display: flex; gap: 12px; flex-wrap: wrap; position: relative;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 26px; border-radius: 999px; text-decoration: none;
+    font-weight: 700; font-size: 15px;
+    transition: transform 0.15s;
+  }
+  .cta-btn.primary {
+    background: var(--brand-red); color: white;
+    box-shadow: 0 8px 30px -8px rgba(239,36,36,0.5);
+  }
+  .cta-btn.primary:hover { background: var(--brand-red-deep); }
+  .cta-btn.secondary {
+    background: rgba(255,255,255,0.08); color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .cta-services {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin-top: 36px; position: relative;
+    padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .cta-service { color: rgba(255,255,255,0.85); }
+  .cta-service-num {
+    font-size: 11px; font-weight: 700; color: var(--brand-red);
+    background: rgba(239,36,36,0.15); padding: 3px 9px;
+    border-radius: 999px; display: inline-block; margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .cta-service h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: white; }
+  .cta-service p { font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.6); margin: 0; }
+
+  /* CONTACTS */
+  .contacts-intro {
+    font-size: 15px; color: var(--text-2);
+    margin-top: 56px; margin-bottom: 20px;
+    max-width: 620px; line-height: 1.55;
+  }
+  .contacts-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .contact {
+    background: var(--soft); border-radius: 14px; padding: 18px 20px;
+    text-decoration: none; color: var(--text);
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 14px;
+    border: 1px solid transparent;
+  }
+  .contact:hover { transform: translateY(-2px); }
+  .contact.tg-personal:hover, .contact.tg-channel:hover {
+    border-color: #229ED9; background: #e0f2fe;
+  }
+  .contact.tg-personal:hover .ic, .contact.tg-channel:hover .ic { color: #229ED9; }
+  .contact.insta:hover { border-color: #E1306C; background: #ffe4ec; }
+  .contact.insta:hover .ic { color: #E1306C; }
+  .contact.youtube:hover { border-color: #FF0000; background: #ffe4e4; }
+  .contact.youtube:hover .ic { color: #FF0000; }
+  .contact.site:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .contact.site:hover .ic { color: var(--accent); }
+  .contact .ic {
+    width: 40px; height: 40px;
+    background: white; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-2); flex-shrink: 0;
+    transition: color 0.2s;
+  }
+  .contact .ic svg { width: 20px; height: 20px; }
+  .contact .label { font-size: 12px; color: var(--muted); }
+  .contact .val { font-weight: 600; font-size: 14px; }
+
+  /* FOOTER */
+  footer {
+    max-width: 1100px; margin: 40px auto 40px;
+    padding: 32px 24px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--muted);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  footer .footer-logo {
+    height: 22px; width: auto; vertical-align: middle; margin-right: 8px;
+  }
+
+  /* SCROLL TO TOP */
+  .to-top {
+    position: fixed; bottom: 24px; right: 24px;
+    width: 44px; height: 44px; background: var(--text); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    text-decoration: none; opacity: 0; transition: opacity 0.2s;
+    z-index: 99;
+  }
+  .to-top.show { opacity: 1; }
+  .to-top svg { width: 18px; height: 18px; }
+
+  @media (max-width: 720px) {
+    .cta-block { padding: 36px 28px; }
+    .cta-services { grid-template-columns: 1fr; }
+    .cta-logo { flex-wrap: wrap; gap: 12px; }
+    .cta-logo-text { border-left: none; padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap">
+    <div class="brand">
+      <img src="8digital-mark.png" alt="8 Digital" class="logo">
+      <div class="divider"></div>
+      <div class="label"><b>Максим Драница</b><br>интенсив 17 мая</div>
+    </div>
+    <ul>
+      <li><a href="#теория">Теория</a></li>
+      <li><a href="#perplexity">Perplexity</a></li>
+      <li><a href="#manus">Manus + P&L</a></li>
+      <li><a href="#документ">Документ vs Норматив</a></li>
+      <li><a href="#контакты">Контакты</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="label">Материалы интенсива</div>
+  <h1>AI для <span class="accent">собственника</span><br>· 17 мая 2026</h1>
+  <p class="lead">Презентации, промпты и учебные файлы из интенсива. Берите, применяйте на своих данных, делитесь с командой.</p>
+  <div class="meta">
+    <span>📅 17 мая 2026</span>
+    <span>📍 Москва, Сити</span>
+    <span>🎯 3 кейса, 2 инструмента</span>
+  </div>
+</header>
+
+<!-- HERO PHOTO -->
+<div class="hero-photo">
+  <div class="hero-photo-frame">
+    <img src="photo.jpg" alt="Участники интенсива 17 мая 2026, Москва Сити">
+    <div class="hero-photo-caption">Команда интенсива · 17 мая 2026, Москва-Сити</div>
+  </div>
+</div>
+
+<!-- GREETING -->
+<section class="greeting">
+  <div class="greeting-box">
+    <p>Вы здесь — это уже сильно. Большинство до сих пор не задумывается про ИИ, а вы потратили день, чтобы с ним подружиться. Здесь — всё, что мы прошли. Берите, применяйте на своих данных, делитесь с командой. Если будут вопросы — пишите в личку.</p>
+    <div class="greeting-sign">— Максим</div>
+  </div>
+</section>
+
+<!-- ============================ -->
+<!-- 01 — ТЕОРИЯ -->
+<!-- ============================ -->
+<section class="block" id="теория">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div class="sec-title">
+      <h2>Теория</h2>
+      <div class="sub">LLM, агент vs чат-бот, галлюцинации, конфиденциальность данных</div>
+    </div>
+  </div>
+
+  <div class="group-label gl-blue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Презентация
+  </div>
+  <div class="download-row">
+    <a href="slides/theory.pdf" download class="download">
+      <div class="ic-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="dl-text">
+        <div class="dl-name">Презентация «Теория»</div>
+        <div class="dl-meta">PDF · LLM, агент vs чат-бот, галлюцинации, конфиденциальность</div>
+      </div>
+      <div class="dl-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+  </div>
+
+  <div class="group-label gl-green">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    Что забрать с собой
+  </div>
+  <div class="tips-grid">
+    <div class="tip">
+      <div class="tip-num">01</div>
+      <h4>Не доверяй одной цифре</h4>
+      <p>Всегда проверяй ключевые числа против нормы отрасли.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-num">02</div>
+      <h4>Требуй источники</h4>
+      <p>Если ИИ может дать ссылку — пусть даст. Без источника утверждение — мнение, не факт.</p>
+    </div>
+    <div class="tip">
+      <div class="tip-num">03</div>
+      <h4>Бери инструменты с интернетом</h4>
+      <p>Perplexity, Manus, ChatGPT с поиском. У них меньше галлюцинаций.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ -->
+<!-- 02 — PERPLEXITY -->
+<!-- ============================ -->
+<section class="block" id="perplexity">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div class="sec-title">
+      <h2>Кейс 1 · Perplexity</h2>
+      <div class="sub">Аналитический обзор рынка за минуту. Артефакты как готовый отчёт для совета директоров</div>
+    </div>
+  </div>
+
+  <div class="group-label gl-blue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Презентация
+  </div>
+  <div class="download-row">
+    <a href="slides/perplexity.pdf" download class="download">
+      <div class="ic-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+      <div class="dl-text">
+        <div class="dl-name">Презентация «Perplexity»</div>
+        <div class="dl-meta">PDF · 4 режима, работа с источниками, Артефакты</div>
+      </div>
+      <div class="dl-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+  </div>
+
+  <div class="group-label gl-slate">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Промпты
+  </div>
+  <div class="prompts">
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge main">⭐ Главный</span>
+        <span class="prompt-title">Обзор рынка вашей ниши (Pro + Deep Research)</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">Замените <code>[МОЯ НИША]</code> и <code>[МОЙ ГОРОД]</code> на свои. Запустите сначала в Pro (~1 мин), затем тот же промпт в Deep Research (5–7 мин).</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Сделай аналитический отчёт по рынку [МОЯ НИША] в [МОЙ ГОРОД/РЕГИОН] за 2024–2026 годы.
+
+Структура:
+1. Размер рынка в деньгах (по годам)
+2. Топ-10 игроков с долями рынка
+3. Сегментация: премиум / средний / эконом — средний чек, маржинальность
+4. 5 ключевых трендов с примерами
+5. Регуляторные изменения 2025–2026
+6. Главные вызовы для собственника
+7. 5 рекомендаций
+
+По каждому факту — ссылка на источник.</div>
+      </div>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge bonus">🎁 Бонус</span>
+        <span class="prompt-title">Артефакт-страница для совета директоров</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">Откройте раздел «Артефакты» в боковой панели Perplexity и используйте этот промпт.</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Сделай артефакт «Рынок [МОЯ НИША] [ГОРОД] 2026–2028: анализ и рекомендации по входу для собственника».
+
+Структура:
+1. Executive summary (главные выводы в 5 буллетах)
+2. Размер и динамика рынка 2021–2026
+3. Карта основных игроков и сегментов
+4. Юнит-экономика типичного игрока (средний чек, конверсия, LTV, CAC, маржа)
+5. Структура себестоимости
+6. Тренды спроса по направлениям
+7. Регуляторные риски 2025–2026
+8. 3 сценария входа в рынок (премиум / средний / эконом)
+9. Итоговая рекомендация для собственника
+
+По каждому факту — источник. Используй таблицы, выделяй ключевые цифры.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="group-label gl-green">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    5 правил хорошего запроса
+  </div>
+  <div class="tips-grid">
+    <div class="tip"><div class="tip-num">01</div><h4>Задавай роль</h4><p>«Я директор по маркетингу…»</p></div>
+    <div class="tip"><div class="tip-num">02</div><h4>Структурируй запрос</h4><p>Заголовок + 5–7 пунктов структуры ответа</p></div>
+    <div class="tip"><div class="tip-num">03</div><h4>Проси таблицы, не текст</h4><p>«Выведи результат в таблице»</p></div>
+    <div class="tip"><div class="tip-num">04</div><h4>Требуй источники</h4><p>«По каждому факту — ссылка»</p></div>
+    <div class="tip"><div class="tip-num">05</div><h4>Уточняй период</h4><p>«За 2024–2026 годы» — без этого ИИ берёт устаревшие данные</p></div>
+  </div>
+</section>
+
+<!-- ============================ -->
+<!-- 03 — MANUS + P&L -->
+<!-- ============================ -->
+<section class="block" id="manus">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div class="sec-title">
+      <h2>Кейс 2 · Manus + P&L</h2>
+      <div class="sub">Разбор финансов собственника за 8 минут вместо 2 дней работы финдиректора</div>
+    </div>
+  </div>
+
+  <div class="group-label gl-blue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Презентация и учебный файл
+  </div>
+  <div class="download-row">
+    <a href="slides/manus.pdf" download class="download">
+      <div class="ic-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+      </div>
+      <div class="dl-text">
+        <div class="dl-name">Презентация «Manus»</div>
+        <div class="dl-meta">PDF · автономный AI-агент, возможности, ограничения</div>
+      </div>
+      <div class="dl-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+    </a>
+    <a href="pnl-albatros-dental.xlsx" download class="download">
+      <div class="ic-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+      </div>
+      <div class="dl-text">
+        <div class="dl-name">Учебный P&L «Альбатрос Дентал»</div>
+        <div class="dl-meta">Excel · 4 листа · стоматология Москвы за 6 месяцев</div>
+      </div>
+      <div class="dl-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+    </a>
+  </div>
+
+  <div class="group-label gl-slate">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Промпты
+  </div>
+  <div class="prompts">
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge main">⭐ Главный</span>
+        <span class="prompt-title">Разбор P&L с пошаговым расчётом EBITDA</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">Загрузите ваш P&L в Manus и вставьте этот промпт. Замените «стоматологической клиники» на ваш бизнес.</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Я собственник [ВАШЕГО БИЗНЕСА]. Прикладываю P&L за [ПЕРИОД].
+
+Сделай:
+
+1. Сначала пошагово посчитай EBITDA по формуле:
+   EBITDA = Выручка − Себестоимость − ФОТ − Постоянные − Маркетинг − Прочее.
+   Выведи все цифры для каждой статьи и итог по каждому месяцу.
+   Сверь сумму ФОТ построчно.
+
+2. Дай общую картину: размер бизнеса, динамика выручки, проверенная маржа EBITDA по месяцам.
+
+3. Найди 3 главных риска или проблемы. По каждой — конкретный факт (с ссылкой на лист и строки) и почему это проблема.
+
+4. Найди 2 точки роста или скрытые возможности.
+
+5. В конце — 5 вопросов, ответы на которые я как собственник должен знать перед принятием решений.
+
+Никаких «скорректированных» цифр. Считай ровно то, что есть. Если чего-то не хватает — спроси.</div>
+      </div>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge bonus">🎁 Бонус</span>
+        <span class="prompt-title">Сборка HTML-дашборда по тем же данным</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">После того как Manus сделал первый разбор — попросите его собрать дашборд в том же чате.</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Теперь собери HTML-дашборд для собственника по этим же данным.
+
+На дашборде должны быть:
+1. Ключевые метрики сверху (выручка, EBITDA, маржа) с динамикой по месяцам
+2. График выручки и EBITDA
+3. Разбивка выручки по направлениям — таблица + диаграмма
+4. Эффективность маркетинговых каналов с CPA по каждому
+5. Главные риски и приоритетные действия
+
+Оформи презентационно, как для совета директоров.</div>
+      </div>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge template">📋 Шаблон</span>
+        <span class="prompt-title">Универсальный шаблон под любую роль и документ</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">Заменяете 4 переменных в скобках под вашу задачу. Примеры подстановки — ниже.</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Я [РОЛЬ]. Прикладываю [ТИП ДОКУМЕНТА] за [ПЕРИОД].
+
+Сделай:
+
+1. Сначала пошагово посчитай [КЛЮЧЕВАЯ МЕТРИКА] по формуле:
+   [МЕТРИКА] = [составляющие]. Покажи все промежуточные цифры.
+
+2. Дай общую картину: размер, динамика, проверенная [МЕТРИКА].
+
+3. Найди 3 главных риска или проблемы с фактами и ссылками на источник.
+
+4. Найди 2 точки роста или скрытые возможности.
+
+5. В конце — 5 вопросов, ответы на которые я как [РОЛЬ] должен знать.
+
+Никаких «скорректированных» цифр. Если чего-то не хватает — спроси.</div>
+        <p class="prompt-hint" style="margin-top: 16px;"><b>Примеры подстановки:</b></p>
+        <table class="norms">
+          <thead><tr><th>Если вы…</th><th>Документ</th><th>Метрика</th></tr></thead>
+          <tbody>
+            <tr><td>Собственник клиники</td><td>P&L</td><td>EBITDA</td></tr>
+            <tr><td>Директор по продажам</td><td>Выгрузка из CRM</td><td>Конверсия воронки</td></tr>
+            <tr><td>HR-директор</td><td>Штатное расписание + ФОТ</td><td>Доля ФОТ от выручки</td></tr>
+            <tr><td>Маркетолог</td><td>Отчёт по каналам</td><td>CAC и LTV</td></tr>
+            <tr><td>Главврач клиники</td><td>Расписание + загрузка кресел</td><td>Загрузка кабинетов</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge hack">💡 Лайфхак</span>
+        <span class="prompt-title">Двухступенчатый промптинг — если не знаешь, что анализировать</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">Сначала спросите ИИ, что анализировать. Получите список метрик с формулами. Потом используйте универсальный шаблон.</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Я [РОЛЬ] [ТИП БИЗНЕСА]. У меня есть [ДОКУМЕНТ]. Какие 5 ключевых метрик я должен анализировать в этом документе, чтобы понять, здоров ли мой бизнес? Кратко, с формулами расчёта.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="group-label gl-green">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    5 правил проверки отчёта Manus
+  </div>
+  <div class="tips-grid">
+    <div class="tip"><div class="tip-num">01</div><h4>Найди главную цифру</h4><p>EBITDA, маржа, выручка. Найди её первой</p></div>
+    <div class="tip"><div class="tip-num">02</div><h4>Сверь с нормой отрасли</h4><p>Если выбивается в разы — это галлюцинация</p></div>
+    <div class="tip"><div class="tip-num">03</div><h4>Проверь, есть ли расчёт</h4><p>Если нет — проси показать формулу пошагово</p></div>
+    <div class="tip"><div class="tip-num">04</div><h4>Проверь ряд на выбросы</h4><p>Если одна цифра резко отличается — это ошибка</p></div>
+    <div class="tip"><div class="tip-num">05</div><h4>Слова-маркеры галлюцинации</h4><p>«Скорректированная», «нормализованная», «приведённая» — если не просил, насторожись</p></div>
+  </div>
+
+  <div class="group-label gl-teal">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    Нормы маржи EBITDA по отраслям
+  </div>
+  <table class="norms">
+    <thead><tr><th>Отрасль</th><th>Норма маржи EBITDA</th></tr></thead>
+    <tbody>
+      <tr><td>Стоматология частная</td><td>10–18% (средняя), 20%+ премиум/сеть</td></tr>
+      <tr><td>Услуги (консалтинг, агентства)</td><td>15–30%</td></tr>
+      <tr><td>Розница</td><td>5–12%</td></tr>
+      <tr><td>Производство</td><td>8–15%</td></tr>
+      <tr><td>B2B SaaS</td><td>20–40%</td></tr>
+      <tr><td>Стройка</td><td>5–10%</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================ -->
+<!-- 04 — ДОКУМЕНТ vs НОРМАТИВ -->
+<!-- ============================ -->
+<section class="block" id="документ">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div class="sec-title">
+      <h2>Кейс 3 · Документ vs Норматив</h2>
+      <div class="sub">Manus сравнивает ваш внутренний документ с нормативом и выдаёт таблицу разрывов</div>
+    </div>
+  </div>
+
+  <div class="group-label gl-blue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Учебные документы
+  </div>
+  <div class="download-row">
+    <a href="docs/ppc-clinic-sample.docx" download class="download">
+      <div class="ic-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+      </div>
+      <div class="dl-text">
+        <div class="dl-name">Программа производственного контроля</div>
+        <div class="dl-meta">Word · обезличенный пример клиники</div>
+      </div>
+      <div class="dl-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+    </a>
+    <a href="docs/sanpin-2-1-3678-20.docx" download class="download">
+      <div class="ic-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+      </div>
+      <div class="dl-text">
+        <div class="dl-name">Выдержка из СанПиН 2.1.3678-20</div>
+        <div class="dl-meta">Word · норматив для медицинских организаций</div>
+      </div>
+      <div class="dl-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+    </a>
+  </div>
+
+  <div class="group-label gl-slate">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Промпт
+  </div>
+  <div class="prompts">
+    <details class="prompt">
+      <summary>
+        <span class="prompt-badge main">⭐ Главный</span>
+        <span class="prompt-title">Сравнение документа с нормативом</span>
+        <svg class="prompt-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="prompt-body">
+        <p class="prompt-hint">Загрузите в Manus оба документа: ваш внутренний и норматив. Промпт показан на примере клиники — замените под себя.</p>
+        <div class="prompt-code">
+<button class="copy-btn" onclick="copyPrompt(this)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+  Копировать
+</button>Я [ВАША РОЛЬ]. Прикладываю два документа:
+
+1. «[НАЗВАНИЕ ВАШЕГО ВНУТРЕННЕГО ДОКУМЕНТА]» — наш внутренний документ.
+2. «[НАЗВАНИЕ НОРМАТИВА]» — действующий норматив.
+
+Сделай:
+
+1. Составь список всех требований из норматива с указанием пунктов.
+
+2. По каждому требованию проверь, как оно отражено в нашем документе. Дай вердикт: «покрыто полностью», «покрыто частично», «не покрыто», «противоречит».
+
+3. По каждой проблеме — точная цитата из норматива и точная цитата из нашего документа (или «отсутствует»).
+
+4. Итоговая таблица: пункт / требование / статус / что дописать или исправить.
+
+5. Приоритизируй проблемы по риску.
+
+Только цитаты и факты. Если в нашем документе чего-то нет — пиши «отсутствует».</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="group-label gl-teal">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    Примеры применения методики
+  </div>
+  <table class="norms">
+    <thead><tr><th>Кто</th><th>Ваш внутренний документ</th><th>Норматив для сравнения</th></tr></thead>
+    <tbody>
+      <tr><td>Главврач клиники</td><td>Программа производственного контроля</td><td>СанПиН 2.1.3678-20</td></tr>
+      <tr><td>Юрист B2B-компании</td><td>Договор поставки</td><td>ГК РФ, главы 30, 37</td></tr>
+      <tr><td>HR-директор</td><td>Положение об оплате труда</td><td>Трудовой кодекс, разделы VI, X</td></tr>
+      <tr><td>Бухгалтер</td><td>Учётная политика</td><td>ПБУ</td></tr>
+      <tr><td>Производство</td><td>Технологическая карта</td><td>Отраслевой ГОСТ</td></tr>
+      <tr><td>Охрана труда</td><td>Инструкция по охране труда</td><td>Приказы Минтруда</td></tr>
+      <tr><td>ИТ-директор</td><td>Политика обработки персональных данных</td><td>152-ФЗ, требования ФСТЭК</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================ -->
+<!-- 05 — CTA + КОНТАКТЫ -->
+<!-- ============================ -->
+<section class="block" id="контакты">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div class="sec-title">
+      <h2>Что дальше</h2>
+      <div class="sub">Хотите внедрить ИИ глубже — давайте обсудим формат под вашу команду</div>
+    </div>
+  </div>
+
+  <!-- 8 DIGITAL CTA — black with red accents -->
+  <div class="cta-block">
+    <div class="cta-logo">
+      <img src="8digital-mark.png" alt="8 Digital" class="cta-logo-mark">
+      <div class="cta-logo-text">
+        8 Digital
+        <small>Внедрение ИИ в бизнес-процессы</small>
+      </div>
+    </div>
+    <h3>Хотите внедрить ИИ в команду — глубже, чем за один день?</h3>
+    <p>Корпоративные обучения, личный коучинг и интенсивы для собственников. Под ваши процессы, инструменты, отрасль. Напишите — обсудим, что подойдёт.</p>
+    <div class="cta-buttons">
+      <a href="https://t.me/maxmad24" class="cta-btn primary" target="_blank" rel="noopener">
+        Написать в Telegram
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://mdranitsa.com" class="cta-btn secondary" target="_blank" rel="noopener">
+        Узнать больше на сайте
+      </a>
+    </div>
+
+    <div class="cta-services">
+      <div class="cta-service">
+        <div class="cta-service-num">01</div>
+        <h4>Discovery</h4>
+        <p>Аудит бизнес-процессов, дорожная карта AI-автоматизации</p>
+      </div>
+      <div class="cta-service">
+        <div class="cta-service-num">02</div>
+        <h4>Корп. обучение</h4>
+        <p>Под команду: разбор нейросетей и приземление на ваши процессы</p>
+      </div>
+      <div class="cta-service">
+        <div class="cta-service-num">03</div>
+        <h4>Стратсессии</h4>
+        <p>Стратегические сессии по внедрению AI в компании</p>
+      </div>
+      <div class="cta-service">
+        <div class="cta-service-num">04</div>
+        <h4>Разработка</h4>
+        <p>AI-интеграции, сайты, приложения, локальные модели ИИ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACTS -->
+  <p class="contacts-intro">Или просто напишите в любом удобном канале — отвечу.</p>
+  <div class="contacts-grid">
+    <a href="https://t.me/maxmad24" class="contact tg-personal" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.04 15.32l-.4 5.65c.57 0 .82-.25 1.12-.55l2.7-2.58 5.6 4.1c1.02.56 1.75.27 2.02-.95l3.67-17.2c.32-1.51-.55-2.1-1.55-1.73L1.66 9.96c-1.47.57-1.45 1.39-.25 1.76l5.27 1.65L18.96 5.7c.58-.4 1.1-.18.67.22"/></svg></div>
+      <div>
+        <div class="label">Telegram, личка</div>
+        <div class="val">@maxmad24</div>
+      </div>
+    </a>
+    <a href="https://t.me/maxdranitsa" class="contact tg-channel" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.04 15.32l-.4 5.65c.57 0 .82-.25 1.12-.55l2.7-2.58 5.6 4.1c1.02.56 1.75.27 2.02-.95l3.67-17.2c.32-1.51-.55-2.1-1.55-1.73L1.66 9.96c-1.47.57-1.45 1.39-.25 1.76l5.27 1.65L18.96 5.7c.58-.4 1.1-.18.67.22"/></svg></div>
+      <div>
+        <div class="label">Telegram-канал</div>
+        <div class="val">@maxdranitsa</div>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/m_dranitsa/" class="contact insta" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></div>
+      <div>
+        <div class="label">Instagram</div>
+        <div class="val">@m_dranitsa</div>
+      </div>
+    </a>
+    <a href="https://youtube.com/@MaxDranitsaAI" class="contact youtube" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.7-.5-5.4c-.3-1-1-1.7-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.6c-1 .3-1.7 1-2 2C1 8.3 1 12 1 12s0 3.7.5 5.4c.3 1 1 1.7 2 2 1.8.6 8.5.6 8.5.6s6.7 0 8.5-.6c1-.3 1.7-1 2-2 .5-1.7.5-5.4.5-5.4zm-13.5 3.5v-7l5.5 3.5-5.5 3.5z"/></svg></div>
+      <div>
+        <div class="label">YouTube</div>
+        <div class="val">@MaxDranitsaAI</div>
+      </div>
+    </a>
+    <a href="https://mdranitsa.com" class="contact site" target="_blank" rel="noopener">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div>
+      <div>
+        <div class="label">Личный сайт</div>
+        <div class="val">mdranitsa.com</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div><img src="8digital-mark.png" alt="8 Digital" class="footer-logo">© 8 Digital · Максим Драница · 2026</div>
+  <div><a href="https://mdranitsa.com">mdranitsa.com</a></div>
+</footer>
+
+<a href="#" class="to-top" id="toTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</a>
+
+<script>
+function copyPrompt(btn) {
+  const code = btn.parentElement;
+  const text = code.innerText.replace(/^Копировать\s*/, '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Скопировано';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = orig;
+      btn.classList.remove('copied');
+    }, 1800);
+  });
+}
+
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) toTop.classList.add('show');
+  else toTop.classList.remove('show');
+});
+toTop.addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
