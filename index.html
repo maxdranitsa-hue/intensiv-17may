@@ -429,6 +429,70 @@
   .contact .label { font-size: 12px; color: var(--muted); }
   .contact .val { font-weight: 600; font-size: 14px; }
 
+  /* BLOG BLOCK */
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px; margin-top: 18px;
+  }
+  .blog-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 26px;
+    text-decoration: none; color: var(--text);
+    transition: all 0.2s;
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -16px rgba(37,99,235,0.25);
+  }
+  .blog-card-cat {
+    display: inline-flex; align-self: flex-start;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 11px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .blog-card-cat.kase { background: var(--good-soft); color: var(--good); }
+  .blog-card h4 {
+    font-size: 19px; font-weight: 800; line-height: 1.25;
+    letter-spacing: -0.01em; margin-bottom: 10px;
+  }
+  .blog-card p {
+    font-size: 14px; color: var(--text-2); line-height: 1.5;
+    margin: 0 0 20px;
+    flex: 1;
+  }
+  .blog-card-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: var(--muted);
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .blog-card-meta .read {
+    color: var(--accent); font-weight: 600;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.15s;
+  }
+  .blog-card:hover .read { gap: 8px; }
+  .blog-all {
+    margin-top: 24px; text-align: center;
+  }
+  .blog-all a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    background: var(--text); color: white;
+    border-radius: 999px; text-decoration: none;
+    font-weight: 600; font-size: 14px;
+    transition: transform 0.15s;
+  }
+  .blog-all a:hover { transform: translateY(-2px); }
+
   /* FOOTER */
   footer {
     max-width: 1100px; margin: 40px auto 40px;
@@ -478,6 +542,7 @@
       <li><a href="#manus">Manus + P&L</a></li>
       <li><a href="#документ">Документ vs Норматив</a></li>
       <li><a href="#контакты">Контакты</a></li>
+      <li><a href="#блог">Блог</a></li>
     </ul>
   </div>
 </nav>
@@ -1050,6 +1115,47 @@
         <div class="label">Личный сайт</div>
         <div class="val">mdranitsa.com</div>
       </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================ -->
+<!-- 06 — ЧИТАТЬ В БЛОГЕ -->
+<!-- ============================ -->
+<section class="block" id="блог">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <div class="sec-title">
+      <h2>Читать в блоге</h2>
+      <div class="sub">Если интересно — у меня есть разборы про ИИ в бизнесе</div>
+    </div>
+  </div>
+
+  <div class="blog-grid">
+    <a href="https://mdranitsa.com/blog/s-chego-nachat-vnedrenie-ii/" class="blog-card">
+      <span class="blog-card-cat">Гайд</span>
+      <h4>С чего начать внедрение ИИ в компанию: 5 ошибок предпринимателей</h4>
+      <p>Разбираю самые частые ошибки собственников при первом подходе к ИИ — на основе 100+ внедрений в 8 Digital.</p>
+      <div class="blog-card-meta">
+        <span>11 мая 2026</span>
+        <span class="read">Читать <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+    <a href="https://mdranitsa.com/blog/claude-code-saved-100k/" class="blog-card">
+      <span class="blog-card-cat kase">Кейс</span>
+      <h4>Я сэкономил 100 000 ₽ за месяц с помощью Claude. Как делать лендинги и VPN за 5 минут</h4>
+      <p>Лендинг, VPN и дашборд можно сделать за пару часов и $20 в месяц, а не недели и десятки тысяч рублей.</p>
+      <div class="blog-card-meta">
+        <span>13 мая 2026</span>
+        <span class="read">Читать <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+  </div>
+
+  <div class="blog-all">
+    <a href="https://mdranitsa.com/blog/" target="_blank" rel="noopener">
+      Все статьи в блоге
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
   </div>
 </section>
